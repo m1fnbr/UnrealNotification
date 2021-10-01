@@ -7,9 +7,13 @@
 #include <vector>
 
 
-namespace Memory
+namespace UnrealNotification
 {
-		static PBYTE FindPattern(uintptr_t pModuleBaseAddress, const char* sSignature, size_t nSelectResultIndex = 0)
+			class Memory 
+			{
+
+	public:
+			static PBYTE FindPattern(uintptr_t pModuleBaseAddress, const char* sSignature, size_t nSelectResultIndex = 0)
 		{
 			static auto patternToByte = [](const char* pattern)
 			{
@@ -84,3 +88,4 @@ namespace Memory
 			return FindPattern((uintptr_t)info.lpBaseOfDll, sSignature, nSelectResultIndex);
 		}
 	};
+}
